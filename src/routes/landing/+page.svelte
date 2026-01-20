@@ -48,7 +48,8 @@
 				<div
 					class="flex flex-col gap-2 justify-between rounded-xl border border-slate-700 bg-slate-800 p-4 transition-colors hover:border-blue-500"
 					>
-					<img class="h-40 object-cover object-center" src={`${PUBLIC_STRAPI_BASE_URL}${article.cover?.url}`} alt="">
+					<!-- <img class="h-40 object-cover object-center" src={`${PUBLIC_STRAPI_BASE_URL}${article.cover?.url}`} alt=""> -->
+					<img class="h-40 object-cover object-center" src={`${article.cover?.url}`} alt="">
 					<h3 class="text-lg font-medium">{article.title}</h3>
 					<a class="bg-sky-500 w-fit px-5 py-1 rounded-2xl border border-transparent hover:border-white/50" href={`/landing/${article.slug}`}>
 						View

@@ -18,7 +18,7 @@
     {#if article}
         <header class="mb-10">
             <h1 class="text-5xl font-bold mb-4">{article.title}</h1>
-            <img class=" object-cover object-center" src={`${PUBLIC_STRAPI_BASE_URL}${article.cover?.url}`} alt="">
+            <img class=" object-cover object-center" src={`${article.cover?.url}`} alt="">
 
             <div class="text-slate-400 text-sm">
                 ID Dokumen: {article.documentId}
