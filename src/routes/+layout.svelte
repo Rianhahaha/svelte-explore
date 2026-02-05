@@ -4,6 +4,7 @@
 	let pageTitle = 'Svelte Explore App';
 
 	let { children } = $props();
+
 </script>
 
 <svelte:head>

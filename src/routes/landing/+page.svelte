@@ -1,9 +1,6 @@
 <script lang="ts">
-	import { PUBLIC_STRAPI_BASE_URL } from '$env/static/public';
 	import type { Article, AboutPage, AboutBlock, StrapiImage } from '$lib/types';
 	let { data } = $props<{ articles: Article[]; about: AboutPage[] }>();
-
-
 	const { articles, about } = $derived(data);
 
 </script>
