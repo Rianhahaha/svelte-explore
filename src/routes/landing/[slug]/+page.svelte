@@ -1,6 +1,8 @@
 <script lang="ts">
 	let { data } = $props();
 	const article = $derived(data.article);
+
+	const displayImage = $derived(article?.cover?.url ?? 'placeholderImg');
 </script>
 
 <svelte:head>
@@ -17,11 +19,10 @@
 
 <article class="mx-auto flex flex-col bg-slate-900 px-6 py-20 text-white">
 	<a href="/landing" class="mb-8 inline-block text-blue-400 hover:underline">← Back</a>
-
 	{#if article}
 		<header class="mb-10">
 			<h1 class="mb-4 text-5xl font-bold">{article.title}</h1>
-			<img class=" object-cover object-center" src={`${article.cover?.url}`} alt="" />
+			<img class=" object-cover object-center" src={`${displayImage}`} alt="" />
 
 			<div class="text-sm text-slate-400">
 				ID Dokumen: {article.documentId}

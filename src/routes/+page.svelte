@@ -15,6 +15,7 @@
 
         <a class="py-2 px-5 bg-slate-800 text-white rounded-2xl hover:bg-slate-600" href="/promordo">To Pomodoro</a>
         <a class="py-2 px-5 bg-slate-800 text-white rounded-2xl hover:bg-slate-600" href="/landing">To Simple landing Page</a>
+        <a class="py-2 px-5 bg-slate-800 text-white rounded-2xl hover:bg-slate-600" href="/meta">Metadata Research</a>
     </div>
 
 </section>

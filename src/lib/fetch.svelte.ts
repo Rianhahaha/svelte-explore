@@ -26,4 +26,8 @@ class Strapi {
 	}
 }
 
+class publicAPI {
+	
+}
+
 export const strapi = new Strapi();

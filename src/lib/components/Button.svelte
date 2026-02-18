@@ -15,11 +15,8 @@
 	class={`w-fit rounded-full border-2 text-sm font-bold  
     ${status === 'danger' ? 'bg-red-500 border-red-500 hover:bg-transparent text-white ' : 'border-white bg-white hover:text-white hover:bg-white/10 '}
     ${type === 'icon' ? 'p-2' : 'px-4 py-2 '} 
-     cursor-pointer`}
-     
->
+     cursor-pointer`}>
 	{text}
-
 	{#if children}
 		{@render children()}
 	{/if}

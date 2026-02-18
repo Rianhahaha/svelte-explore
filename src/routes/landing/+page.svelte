@@ -1,7 +1,11 @@
 <script lang="ts">
+	import { PUBLIC_STRAPI_BASE_URL } from '$env/static/public';
 	import type { Article, AboutPage, AboutBlock, StrapiImage } from '$lib/types';
 	let { data } = $props<{ articles: Article[]; about: AboutPage[] }>();
+
+
 	const { articles, about } = $derived(data);
+		console.log(articles);
 
 </script>
 <svelte:head>
@@ -39,17 +43,16 @@
 	</section>
 
 	<section class="p-10">
-		<h2 class="mb-6 text-xl font-semibold"> Articles</h2>
+		<h2 class="mb-6 text-xl font-semibold">Recent Articles</h2>
 		<div class="grid grid-cols-4 gap-4">
 			{#each articles ?? [] as article (article.id)}
 				<div
-					class="flex flex-col gap-2 justify-between rounded-xl border border-slate-700 bg-slate-800 p-4 transition-colors hover:border-blue-500"
+					class="flex flex-col justify-between rounded-xl border border-slate-700 bg-slate-800 p-4 transition-colors hover:border-blue-500"
 					>
-					<!-- <img class="h-40 object-cover object-center" src={`${PUBLIC_STRAPI_BASE_URL}${article.cover?.url}`} alt=""> -->
-					<img class="h-40 object-cover object-center" src={`${article.cover?.url}`} alt="">
+					<img class="h-40 object-cover object-center" src={`${PUBLIC_STRAPI_BASE_URL}${article.cover?.url}`} alt="">
 					<h3 class="text-lg font-medium">{article.title}</h3>
-					<a class="bg-sky-500 w-fit px-5 py-1 rounded-2xl border border-transparent hover:border-white/50" href={`/landing/${article.slug}`}>
-						View
+					<a href={`/landing/${article.slug}`}>
+						go
 					</a>
 				</div>
 			{:else}
