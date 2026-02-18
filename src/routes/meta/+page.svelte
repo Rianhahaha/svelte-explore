@@ -1,36 +1,56 @@
 <script lang="ts">
-	import { PUBLIC_STRAPI_BASE_URL } from '$env/static/public';
-	import type { Article, AboutPage, AboutBlock, StrapiImage } from '$lib/types';
-	let { data } = $props<{ articles: Article[]; about: AboutPage[] }>();
+    import { pushState } from '$app/navigation';
+    import { page } from '$app/state'; // <-- Ini BUKAN Store, ini State object
+    import { PUBLIC_STRAPI_BASE_URL } from '$env/static/public';
+    import type { Article } from '$lib/types';
 
-	const { articles, about } = $derived(data);
-	// console.log(articles);
+    import Modal from '$lib/components/Modal.svelte';
+    import ArticleContent from '$lib/components/ArticleContent.svelte';
+
+    // Pake $props() tandanya lo udah full Svelte 5
+    let { data } = $props<{ articles: Article[] }>(); // Kasih type biar ga any
+    
+    // Derived value aman
+    const articles = $derived(data.articles);
+    console.log(articles);
+
+    function openModal(e: MouseEvent, article: Article) {
+        e.preventDefault();
+        const href = `/meta/${article.slug}`;
+        
+        // Push state aman
+        pushState(href, { 
+            showModal: true, 
+            selectedArticle: article 
+        });
+    }
+
+
+
 </script>
-
-<svelte:head>
-	<title>Metadata Research</title>
-	<meta charset="UTF-8" />
-	<meta name="description" content="Free Web tutorials" />
-	<meta name="keywords" content="HTML, CSS, JavaScript" />
-	<meta name="author" content="John Doe" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</svelte:head>
-
-<div class="min-h-screen bg-slate-900 text-white">
-	<section class="p-10">
-		<h2 class="mb-6 text-xl font-semibold">Metadata Research</h2>
-		<div class="grid grid-cols-4 gap-4">
-			{#each articles ?? [] as article (article.id)}
-				<div
-					class="flex flex-col justify-between rounded-xl border border-slate-700 bg-slate-800 p-4 transition-colors hover:border-blue-500"
-				>
-					<img class="h-40 object-cover object-center" src={`${article.cover?.url}`} alt="" />
-					<h3 class="text-lg font-medium">{article.title}</h3>
-					<a href={`/landing/${article.slug}`}> go </a>
-				</div>
-			{:else}
-				<div class="text-slate-500 italic">Please Check Strapi Server...</div>
-			{/each}
-		</div>
-	</section>
+{#if page.state.showModal && page.state.selectedArticle}
+    
+    <Modal onClose={() => history.back()}>
+        
+        <ArticleContent article={page.state.selectedArticle as Article} />
+    
+    </Modal>
+{/if}
+<div class="min-h-screen bg-slate-900 text-white p-10">
+    <div class="grid grid-cols-4 gap-4">
+        {#each articles ?? [] as article (article.id)}
+            <div class="border border-slate-700 p-4 rounded bg-slate-800">
+                <h3 class="text-lg font-bold">{article.title}</h3>
+                
+                <button 
+                  
+                    class="text-blue-400 mt-2 block"
+                    onclick={(e) => openModal(e, article)}
+                >
+                    View (Modal)
+                </button>
+            </div>
+        {/each}
+    </div>
 </div>
+

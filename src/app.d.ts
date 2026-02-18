@@ -6,6 +6,10 @@ declare global {
 		// interface Locals {}
 		// interface PageData {}
 		// interface PageState {}
+		interface PageState {
+            showModal?: boolean;
+            selectedArticle?: Article; // <-- Kasih tau TS kalo ini bakal ada
+        }
 		// interface Platform {}
 	}
 }
