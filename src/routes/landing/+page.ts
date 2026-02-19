@@ -1,5 +1,5 @@
-import { strapi } from "$lib/fetch.svelte";
-export const prerender = true;
+import { strapi } from "$lib/fetch.svelte.js";
+// export const prerender = true;
 
 export const load = async () => {
     const aboutData = await strapi.getAboutData();
