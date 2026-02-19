@@ -1,4 +1,4 @@
-import { strapi } from "$lib/fetch.svelte.js";
+import { strapi } from "$lib/fetch.svelte";
 export const prerender = true;
 
 export const load = async () => {

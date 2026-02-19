@@ -21,6 +21,8 @@
     </div>
 
     <div class="text-slate-300 leading-relaxed">
-        {@html article.desription ?? 'Belum ada konten, penulisnya mager.'} 
+        {@html article.description ?? 'lorem20.'}
+         
     </div>
+
 </article>

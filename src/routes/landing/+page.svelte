@@ -5,7 +5,7 @@
 
 
 	const { articles, about } = $derived(data);
-		console.log(articles);
+		// console.log(articles);
 
 </script>
 <svelte:head>

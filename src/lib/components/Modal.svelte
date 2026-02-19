@@ -1,6 +1,7 @@
 <script lang="ts">
     // Kita butuh 'snippet' buat render konten dinamis di dalemnya
     import type { Snippet } from 'svelte';
+	import { fade } from 'svelte/transition';
 
     let { children, onClose } = $props<{ 
         children: Snippet, 
@@ -23,14 +24,14 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <div 
-    class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto"
-    role="dialog"
-    aria-modal="true"
-    onclick={handleBackdropClick}
+    class="fixed w-screen h-screen z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-hidden"
+    in:fade
+    out:fade
+
 >
     <div 
         class="relative w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden"
-        onclick={(e) => e.stopPropagation()}
+
     >
         <div class="flex justify-end p-2 absolute top-0 right-0 z-10">
             <button 

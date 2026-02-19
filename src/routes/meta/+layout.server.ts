@@ -1,11 +1,12 @@
 import { PUBLIC_STRAPI_BASE_URL } from '$env/static/public';
-import type { LayoutServerLoad } from './$types';
+import { strapi } from '$lib/fetch.svelte';
+
 export const prerender = false;
-export const load: LayoutServerLoad = async ({ fetch }) => {
-    const res = await fetch(`${PUBLIC_STRAPI_BASE_URL}/api/articles?populate=*`);
-    const data = await res.json();
+export const load = async () => {
+    const articleData = await strapi.getArticleData();
+
     
     return {
-        articles: data.data || []
+        articles: articleData || []
     };
 };
