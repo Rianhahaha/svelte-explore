@@ -14,7 +14,7 @@
 
 <svelte:head>
     <title>{article.title} | Metadata Research</title>
-    <meta name="description" content={`Baca artikel tentang ${article.title}`} />
+    <meta name="description" content={`${article.description}`} />
     
     <meta property="og:title" content={article.title} />
     <meta property="og:image" content={article.cover?.url} />
