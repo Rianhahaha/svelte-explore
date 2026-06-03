@@ -21,12 +21,12 @@
 		<a class="rounded-2xl bg-slate-800 px-5 py-2 text-white hover:bg-slate-600" href="/promordo"
 			>To Pomodoro</a
 		>
-		<!-- <a class="rounded-2xl bg-slate-800 px-5 py-2 text-white hover:bg-slate-600" href="/landing"
+		<a class="rounded-2xl bg-slate-800 px-5 py-2 text-white hover:bg-slate-600" href="/landing"
 			>To Simple landing Page</a
 		>
 		<a class="rounded-2xl bg-slate-800 px-5 py-2 text-white hover:bg-slate-600" href="/meta"
 			>Metadata Research</a
-		> -->
+		>
 		<a class="rounded-2xl bg-slate-800 px-5 py-2 text-white hover:bg-slate-600" href="/leaflet"
 			>Leaflet Research</a
 		>
