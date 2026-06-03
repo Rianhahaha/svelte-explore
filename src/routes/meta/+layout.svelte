@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from '$app/state'; 
-        import { pushState } from '$app/navigation';
+    import { pushState } from '$app/navigation';
 
     import type { Article } from '$lib/types';
     import Modal from '$lib/components/Modal.svelte';
@@ -27,7 +27,7 @@
     
     </Modal>
 {/if}
-{@render children?.()}
+<!-- {@render children?.()} -->
 <div class="min-h-screen bg-slate-900 text-white p-10">
     <div class="grid grid-cols-4 gap-4">
         {#each articles ?? [] as article (article.id)}
