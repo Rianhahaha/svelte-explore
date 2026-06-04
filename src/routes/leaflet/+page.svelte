@@ -4,6 +4,7 @@
 
 	let mapContainer: HTMLElement;
 	let mapInstance: any;
+	let mapType = $state('world');
 
 	onMount(async () => {
 		const L = (await import('leaflet')).default;
@@ -16,7 +17,8 @@
 			minZoom: 3,
 			maxZoom: maxZ,
 			zoomSnap: 0.5,
-			maxBoundsViscosity: 1.0 // Prevent dragging outside bounds
+			maxBoundsViscosity: 1.0, // Prevent dragging outside bounds
+			fadeAnimation:false
 		});
 
 		// 2. Absolute Dimension Calculation
@@ -47,7 +49,11 @@
 			noWrap: true,
 			tileSize: 256,
 			minNativeZoom: 0,
-			maxNativeZoom: maxZ
+			maxNativeZoom: maxZ,
+			updateInterval: 0,
+			updateWhenIdle: false,
+			updateWhenZooming: true,
+			keepBuffer:4
 		}).addTo(mapInstance);
 
 		mapInstance.fitBounds(bounds);
@@ -60,6 +66,16 @@
 	});
 </script>
 
-<div class="relative h-screen w-full bg-[#1a1a1a]">
+<div class="relative h-screen w-full bg-[#c6ad89]!">
 	<div bind:this={mapContainer} class="z-10 h-full w-full"></div>
+	<!-- 
+	<button class="absolute top-[12dvh] left-[12px] w-fit py-3 px-2 bg-slate-700 border-slate-900 text-white z-50">
+		Change Map
+	</button> -->
 </div>
+
+<style>
+:global(.leaflet-container) {
+        background: #c6ad89 !important;
+    }
+</style>
