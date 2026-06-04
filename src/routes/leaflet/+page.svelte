@@ -8,7 +8,7 @@
 	onMount(async () => {
 		const L = (await import('leaflet')).default;
 
-		const maxZ = 5;
+		const maxZ = 4;
 
 		// 1. Initialize map WITHOUT maxBounds first
 		mapInstance = L.map(mapContainer, {
@@ -27,8 +27,8 @@
 		// 1. Tentukan offset pemotongan (dalam pixel)
 		// Karena gambar di tengah, sisa kosong atas dan bawah biasanya simetris.
 		// Angka ini butuh sedikit trial & error tergantung proporsi gambar aslimu.
-		const emptySpaceTop = 1790; // Coba ubah angka ini (misal: 1000, 1500, 2000)
-		const emptySpaceBottom = 1775;
+		const emptySpaceTop = 1190; // Coba ubah angka ini (misal: 1000, 1500, 2000)
+		const emptySpaceBottom = 1275;
 
 		const actualTopY = emptySpaceTop;
 		const actualBottomY = height - emptySpaceBottom;
@@ -42,7 +42,7 @@
 		// 3. Set bounds seperti biasa
 		mapInstance.setMaxBounds(bounds);
 
-		L.tileLayer('/map2/{z}/{x}/{y}.png', {
+		L.tileLayer('/leaflet/{z}/{x}/{y}.png', {
 			bounds: bounds,
 			noWrap: true,
 			tileSize: 256,
