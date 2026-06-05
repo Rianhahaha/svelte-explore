@@ -49,7 +49,7 @@
         }).addTo(mapInstance);
 
         // 4. RENDER HIGH-RES TILES (Z-Index 2: Menimpa fallback)
-        L.tileLayer('/leaflet/{z}/{x}/{y}.png', {
+        L.tileLayer('/map2/{z}/{x}/{y}.png', {
             bounds: bounds,
             noWrap: true,
             tileSize: 256,
