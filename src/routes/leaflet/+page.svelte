@@ -9,7 +9,7 @@
     onMount(async () => {
         const L = (await import('leaflet')).default;
 
-        const maxZ = 4;
+        const maxZ = 5;
 
         mapInstance = L.map(mapContainer, {
             crs: L.CRS.Simple,
@@ -49,7 +49,7 @@
         }).addTo(mapInstance);
 
         // 4. RENDER HIGH-RES TILES (Z-Index 2: Menimpa fallback)
-        L.tileLayer('/map2/{z}/{x}/{y}.png', {
+        L.tileLayer('/map/{z}/{x}/{y}.png', {
             bounds: bounds,
             noWrap: true,
             tileSize: 256,
