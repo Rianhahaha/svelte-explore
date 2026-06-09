@@ -1,3 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+
+@custom-variant touch (@media (pointer: coarse) and (hover: none));
+@custom-variant mouse (@media (pointer: fine) and (hover: hover));

@@ -66,6 +66,9 @@
             <a class="rounded-2xl bg-slate-800 px-5 py-2 text-white transition-colors hover:bg-slate-600" href="/leaflet">
                 Leaflet Research
             </a>
+            <a class="rounded-2xl bg-slate-800 px-5 py-2 text-white transition-colors hover:bg-slate-600" href="/other">
+                Leaflet Research
+            </a>
         </div>
     {/if}
 </section>
